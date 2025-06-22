@@ -42,8 +42,9 @@ class LectureResource extends Resource
                 Forms\Components\TextInput::make('topik')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('image')
+                Forms\Components\FileUpload::make('image')
                     ->required()
+                    ->image()
                     ->columnSpanFull(),
             ]);
     }
@@ -64,6 +65,7 @@ class LectureResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('topik')
                     ->searchable(),
+                Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
